@@ -27,8 +27,8 @@ function App() {
       />
 
       {alertVisible && (
-        <Alert>
-          Whoa <span>there</span>
+        <Alert onClose={() => setAlertVisibility(false)}>
+          is for the <span>children</span>
         </Alert>
       )}
       <Button onClick={() => setAlertVisibility(true)}>WuTang</Button>

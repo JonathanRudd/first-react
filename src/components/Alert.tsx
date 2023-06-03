@@ -2,9 +2,10 @@ import { ReactNode } from "react";
 
 interface Props {
   children: ReactNode;
+  onClose: () => void;
 }
 
-const Alert = ({ children }: Props) => {
+const Alert = ({ children, onClose }: Props) => {
   return (
     <div className="alert alert-primary alert-dismissible fade show" role="alert">
       {children}
@@ -13,7 +14,8 @@ const Alert = ({ children }: Props) => {
         className="btn-close"
         data-bs-dismiss="alert"
         aria-label="Close"
-        // onClick={() => setAlertVisibility(false)}
+        // can't refer to setAlertVisibility here because it's not in scope, so we need to pass it in as a prop
+        onClick={onClose}
       ></button>
     </div>
   );
